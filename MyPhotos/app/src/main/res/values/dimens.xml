@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_item_height">220dp</dimen>
+    <dimen name="card_corner_radius">10dp</dimen>
+    <dimen name="card_text_block_margin">12dp</dimen>
+    <dimen name="card_text_item_margin">12dp</dimen>
+</resources>

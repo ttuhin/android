@@ -1,0 +1,159 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FallDetector - skfreefall</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">skfreefall</a>&nbsp;/&nbsp;<a href="../index.html">com.tuhin.skfreefall</a>&nbsp;/&nbsp;<a href="./index.html">FallDetector</a><br/>
+<br/>
+<h1>FallDetector</h1>
+<code><span class="keyword">class </span><span class="identifier">FallDetector</span></code>
+<p>FallDetector class which provides
+several APIs to detect free fall event of android devices.</p>
+<pre><code class="lang-kotlin">class FallDetectorClient : AppCompatActivity() {
+    fun fallDetectionClientExample() {
+        //create fall detection object
+        val fallDetector = FallDetector(this, object : FallDetectorCallback {
+            override fun onFallDetected(freeFallData: FreeFallData) {
+                val latestFallData: String = String.format(
+                    freeFallData.timeStamp,
+                    freeFallData.duration
+                )
+                runOnUiThread {
+                    //update UI or print log
+                }
+            }
+        })
+
+        if (!fallDetector.isRunning()) {
+            fallDetector.apply {
+                //set min threshold
+                setMinThreshold(1.0)
+                //set max threshold
+                setMaxThreshold(9.0)
+                //start detection
+                startDetection()
+                //remove all events
+                fallDetector.getAllEvents().observeOn(AndroidSchedulers.mainThread()).subscribe({
+                    //update UI or print log
+                }) {
+                    //update UI or print log
+                }
+
+                /*
+                To remove all events from database
+                 */
+                fallDetector.deleteAllEvents().observeOn(AndroidSchedulers.mainThread())
+                    .subscribe {
+                        //update UI or print log
+                    }
+            }
+        }
+    }
+}</code></pre>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">FallDetector</span><span class="symbol">(</span><span class="identifier" id="com.tuhin.skfreefall.FallDetector$<init>(android.content.Context, com.tuhin.skfreefall.FallDetectorCallback)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="com.tuhin.skfreefall.FallDetector$<init>(android.content.Context, com.tuhin.skfreefall.FallDetectorCallback)/fallDetectorCallback">fallDetectorCallback</span><span class="symbol">:</span>&nbsp;<a href="../-fall-detector-callback/index.html"><span class="identifier">FallDetectorCallback</span></a><span class="symbol">)</span></code>
+<p>FallDetector class which provides
+several APIs to detect free fall event of android devices.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="delete-all-events.html">deleteAllEvents</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">deleteAllEvents</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Removed all free fall events occurred in the device
+from the local database permanently.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-all-events.html">getAllEvents</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAllEvents</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../com.tuhin.skfreefall.data.model/-free-fall-data/index.html"><span class="identifier">FreeFallData</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Provide all free fall events occurred in the device
+which had been saved in the local database and can be listened by implementing observer.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-max-threshold.html">getMaxThreshold</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getMaxThreshold</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>Get maximum threshold value</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-min-threshold.html">getMinThreshold</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getMinThreshold</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>Get minimum threshold value</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="is-running.html">isRunning</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isRunning</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Return the current detection state.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-max-threshold.html">setMaxThreshold</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setMaxThreshold</span><span class="symbol">(</span><span class="identifier" id="com.tuhin.skfreefall.FallDetector$setMaxThreshold(kotlin.Double)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Adjust threshold value for rest state of device.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-min-threshold.html">setMinThreshold</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setMinThreshold</span><span class="symbol">(</span><span class="identifier" id="com.tuhin.skfreefall.FallDetector$setMinThreshold(kotlin.Double)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Adjust threshold value for free fall state of device.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="start-detection.html">startDetection</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">startDetection</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Start detection of free fall event</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="stop-detection.html">stopDetection</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">stopDetection</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stop detection of free fall event.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

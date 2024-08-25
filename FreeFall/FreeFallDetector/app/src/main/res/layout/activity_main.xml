@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/fallTextHeader"
+        style="@style/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/event_header"
+        app:layout_constraintBottom_toTopOf="@+id/fallText"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.166" />
+
+    <TextView
+        android:id="@+id/fallText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorGray"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/clearButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fallTextHeader"
+        app:layout_constraintVertical_bias="0.166" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_clear"
+        app:layout_constraintBottom_toTopOf="@+id/fallListRecyclerView"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintLeft_toRightOf="@+id/listHeaderText"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fallText"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        style="@style/header"
+        android:id="@+id/listHeaderText"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/list_header"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fallText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fallListRecyclerView"
+        app:layout_constraintVertical_bias="0.166" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fallListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="4dp"
+        android:background="@color/colorGray"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listHeaderText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

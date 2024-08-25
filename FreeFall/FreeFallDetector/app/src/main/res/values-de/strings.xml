@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Kostenlos Fallen Detektor</string>
+    <string name="event_header">dasEreignis</string>
+    <string name="list_header">dasEreignis dieListe</string>
+    <string name="text_clear">löschen dieListe</string>
+    <string name="event_info">Zeitstempel : %1$s \ndieDauer: %2$s ms </string>
+    <string name="success_message">Alle Ereignisse wurden erfolgreich entfernt</string>
+
+</resources>

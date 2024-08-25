@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FreeFall Detector</string>
+    <string name="event_header">Event</string>
+    <string name="list_header">Event List</string>
+    <string name="text_clear">Clear List</string>
+    <string name="event_info">Timestamp : %1$s \nDuration : %2$s ms </string>
+    <string name="success_message">All events removed successfully</string>
+</resources>

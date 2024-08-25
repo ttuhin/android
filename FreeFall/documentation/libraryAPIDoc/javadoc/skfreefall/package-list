@@ -1,0 +1,7 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+com.tuhin.skfreefall
+com.tuhin.skfreefall.data.model
+com.tuhin.skfreefall.sample
+com.tuhin.skfreefall.util

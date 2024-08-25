@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tuhin.skfreefall" >
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <application>
+        <service android:enabled="true" android:name="com.tuhin.skfreefall.FallDetectorService"></service>
+    </application>
+</manifest>

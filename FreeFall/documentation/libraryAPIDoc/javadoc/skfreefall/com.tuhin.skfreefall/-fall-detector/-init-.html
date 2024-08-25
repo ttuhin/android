@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FallDetector.<init> - skfreefall</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">skfreefall</a>&nbsp;/&nbsp;<a href="../index.html">com.tuhin.skfreefall</a>&nbsp;/&nbsp;<a href="index.html">FallDetector</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="com.tuhin.skfreefall.FallDetector$&lt;init&gt;(android.content.Context, com.tuhin.skfreefall.FallDetectorCallback)"></a>
+<code><span class="identifier">FallDetector</span><span class="symbol">(</span><span class="identifier" id="com.tuhin.skfreefall.FallDetector$<init>(android.content.Context, com.tuhin.skfreefall.FallDetectorCallback)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="com.tuhin.skfreefall.FallDetector$<init>(android.content.Context, com.tuhin.skfreefall.FallDetectorCallback)/fallDetectorCallback">fallDetectorCallback</span><span class="symbol">:</span>&nbsp;<a href="../-fall-detector-callback/index.html"><span class="identifier">FallDetectorCallback</span></a><span class="symbol">)</span></code>
+<p>FallDetector class which provides
+several APIs to detect free fall event of android devices.</p>
+<pre><code class="lang-kotlin">class FallDetectorClient : AppCompatActivity() {
+    fun fallDetectionClientExample() {
+        //create fall detection object
+        val fallDetector = FallDetector(this, object : FallDetectorCallback {
+            override fun onFallDetected(freeFallData: FreeFallData) {
+                val latestFallData: String = String.format(
+                    freeFallData.timeStamp,
+                    freeFallData.duration
+                )
+                runOnUiThread {
+                    //update UI or print log
+                }
+            }
+        })
+
+        if (!fallDetector.isRunning()) {
+            fallDetector.apply {
+                //set min threshold
+                setMinThreshold(1.0)
+                //set max threshold
+                setMaxThreshold(9.0)
+                //start detection
+                startDetection()
+                //remove all events
+                fallDetector.getAllEvents().observeOn(AndroidSchedulers.mainThread()).subscribe({
+                    //update UI or print log
+                }) {
+                    //update UI or print log
+                }
+
+                /*
+                To remove all events from database
+                 */
+                fallDetector.deleteAllEvents().observeOn(AndroidSchedulers.mainThread())
+                    .subscribe {
+                        //update UI or print log
+                    }
+            }
+        }
+    }
+}</code></pre>
+</BODY>
+</HTML>

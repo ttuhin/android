@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>alltypes - skfreefall</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<p>
+skfreefall is a library to detect free fall event of android devices.
+
+It sends notification to the system which will be displayed in  notification bar of device.
+It saves all the free fall events and user can get the list .
+Fall event can be detected even if the activity is in background.
+
+Built in accelerometer sensor needed in the device.
+It reads accelerometer sensors data and based on the reading detect fall event.
+Fall threshold value can be different from device to device.
+Therefore, client can anjust the threshold.
+
+There is a one second time gap between two fall events.
+That means library will ignore the event if the last event happened within one second.
+</p>
+<h3>All Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../com.tuhin.skfreefall/-fall-detector/index.html">com.tuhin.skfreefall.FallDetector</a></td>
+<td>
+<p>FallDetector class which provides
+several APIs to detect free fall event of android devices.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.tuhin.skfreefall/-fall-detector-callback/index.html">com.tuhin.skfreefall.FallDetectorCallback</a></td>
+<td>
+<p>Implemented this in order for FallDetector to be able to callback in fall event</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.tuhin.skfreefall.sample/-fall-detector-client/index.html">com.tuhin.skfreefall.sample.FallDetectorClient</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.tuhin.skfreefall.data.model/-free-fall-data/index.html">com.tuhin.skfreefall.data.model.FreeFallData</a></td>
+<td>
+<p>This is a model class to hold free fall information</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.tuhin.skfreefall.util/-time-util/index.html">com.tuhin.skfreefall.util.TimeUtil</a></td>
+<td>
+<p>This is a util class for date time related conversion</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

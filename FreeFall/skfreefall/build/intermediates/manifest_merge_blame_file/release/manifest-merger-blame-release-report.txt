@@ -1,0 +1,27 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.tuhin.skfreefall"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->D:\ixBird\FreeFallDetector\skfreefall\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->D:\ixBird\FreeFallDetector\skfreefall\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+11-->D:\ixBird\FreeFallDetector\skfreefall\src\main\AndroidManifest.xml:4:5-76
+11-->D:\ixBird\FreeFallDetector\skfreefall\src\main\AndroidManifest.xml:4:22-74
+12
+13    <application>
+13-->D:\ixBird\FreeFallDetector\skfreefall\src\main\AndroidManifest.xml:5:5-7:19
+14        <service
+14-->D:\ixBird\FreeFallDetector\skfreefall\src\main\AndroidManifest.xml:6:9-107
+15            android:name="com.tuhin.skfreefall.FallDetectorService"
+15-->D:\ixBird\FreeFallDetector\skfreefall\src\main\AndroidManifest.xml:6:41-96
+16            android:enabled="true" />
+16-->D:\ixBird\FreeFallDetector\skfreefall\src\main\AndroidManifest.xml:6:18-40
+17    </application>
+18
+19</manifest>
